@@ -1015,7 +1015,7 @@ def r1_zero_reward_fn(response, ground_truth, fast=True):
                 return {
                     "format_reward": 1.0,
                     "answer_reward": 0.0,
-                    "reward": 0.0
+                    "reward": 0
                 }
         if isinstance(ground_truth, float) or isinstance(ground_truth, int):
             ground_truth = str(ground_truth)
@@ -1036,14 +1036,14 @@ def r1_zero_reward_fn(response, ground_truth, fast=True):
             return {
                 "format_reward": 1.0,
                 "answer_reward": 0.0,
-                "reward": 0.0
+                "reward": 0
             }
     else:
         # Unformatted.
         return {
             "format_reward": 0.0,
             "answer_reward": 0.0,
-            "reward": 0.0
+            "reward": 0
         }
 
 
@@ -1054,7 +1054,7 @@ def question_only_reward_fn(response, ground_truth, fast=True):
         return {
             "format_reward": 0.0,
             "answer_reward": 0.0,
-            "reward": 0.0
+            "reward": 0
         }
     if isinstance(ground_truth, float) or isinstance(ground_truth, int):
         ground_truth = str(ground_truth)
@@ -1076,5 +1076,5 @@ def question_only_reward_fn(response, ground_truth, fast=True):
         return {
             "format_reward": 1.0,
             "answer_reward": 0.0,
-            "reward": 0.0
+            "reward": 0
         }

@@ -1,5 +1,5 @@
 import torch
-
+from transformers import AutoTokenizer
 from .adapters import (
     run_compute_entropy as compute_entropy,
     run_get_response_log_probs as get_response_log_probs,
@@ -9,6 +9,7 @@ from .adapters import (
 )
 
 def test_tokenize_prompt_and_output(numpy_snapshot, prompt_strs, output_strs, tokenizer):
+
     output = tokenize_prompt_and_output(
         prompt_strs=prompt_strs,
         output_strs=output_strs,

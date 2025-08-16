@@ -159,6 +159,14 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+swanlog/
+cs336_alignment/train_grpo_*
+wandb/
+data/*.py
+cs336_alignment/merge_lora.py
+cs336_alignment/test.py
+.idea
+checkpoint*
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
 #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore

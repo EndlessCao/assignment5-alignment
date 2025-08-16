@@ -1,0 +1,17 @@
+{
+    "exclude": [
+        "tests",
+        "data"
+    ],
+      "reportMissingTypeStubs": "none", // 不报告缺少类型存根的问题 (非常常用)
+  "reportUnusedVariable": "warning", // 将未使用的变量从“错误”降级为“警告”
+  "reportPrivateUsage": "none", // 不报告访问“_private”成员的问题
+  "reportUnknownMemberType": "none", // 不报告成员类型未知的问题
+  "reportGeneralTypeIssues": "none", // 关闭一些通用的类型问题报告
+  "reportAny": "none",
+  "reportUnknownArgumentType":"none",
+  "reportImplicitRelativeImport":"none",
+  "reportArgumentType":"warning",
+  "reportUnusedCallResult":"none",
+  "reportUnknownVariableType":"none"
+}
