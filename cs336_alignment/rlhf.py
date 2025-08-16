@@ -195,6 +195,9 @@ class GRPOTrainer:
                 weight_decay=0.0,
                 betas=(0.9, 0.95),
             )
+        self.scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            self.optimizer, T_max=self.args.n_grpo_steps
+        )
         self.use_peft = hasattr(self.policy, "peft_config")
         self.vllm_kwargs = self.args.vllm_kwargs
         self.vllm_model = None
@@ -419,7 +422,7 @@ class GRPOTrainer:
 
             # === Training Phase ===
             self.policy.train()
-
+            
             for _ in range(self.args.epochs_per_rollout_batch):
                 
                 losses = []
@@ -459,6 +462,7 @@ class GRPOTrainer:
                         self.optimizer.step()
                         self.optimizer.zero_grad()
                 self._log({"loss": np.mean(losses)})
+            self.scheduler.step()
             if (grpo_step + 1) % self.args.eval_interval == 0:
                 self.policy.eval()
                 eval_metrics = self.evaluate(output_dir=self.output_dir / f"checkpoint-step-{grpo_step + 1}")
